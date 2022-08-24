@@ -1,9 +1,9 @@
 {% extends 'authenticate/base.html' %}
 
 {% block content %}
-<h1 class="text-center">Register</h1>
-<div class="col-md-6 offset-md-3">
-<form action="{% url 'register' %}" method="post">
+<h1 class="text-center">Edit profile</h1>
+ 
+<form action="{% url 'edit_profile' %}" method="post">
     {% csrf_token %}
     
     {% if form.errors %}
@@ -23,8 +23,11 @@
         
     {% endif %}
     {{form.as_p}}
-    <input type="submit" value="register" class="btn btn-secondary">
+
+    <input type="submit" value="edit profile" class="btn btn-secondary">
         
 </form>
-</div>
+<br/> 
+<p><small><a href="{% url 'change_password' %}">Click here</a> to change your password</small></p>
+
 {% endblock %}
